@@ -231,6 +231,9 @@ where specialization='Cardiology';
 
 **Output:**
 
+
+
+
 <img width="1302" height="347" alt="image" src="https://github.com/user-attachments/assets/dabc3213-ec65-4263-9472-07b98999fe73" />
 
 
