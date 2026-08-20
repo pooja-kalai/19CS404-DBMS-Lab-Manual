@@ -47,123 +47,192 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL statement to Update the per_unit_price to 25 and total_price accordingly in purchases table where purchase_date is '2022-08-15' and product_id is 12.
 
-```sql
--- Paste your SQL code below for Question 1
+```
+update purchases
+set per_unit_price = 25, total_price=25*quantity
+where purchase_date='2022-08-15' and product_id=12;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1241" height="617" alt="image" src="https://github.com/user-attachments/assets/a072c83e-9edd-4d9d-8a8f-169f3dca6a4f" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL statement to Change the category to 'Household' where product name contains 'Detergent' in the products table.
 
-```sql
--- Paste your SQL code below for Question 2
+Products Table
+
+name type
+
+product_id INT PRIMARY KEY
+product_name VARCHAR(10) category VARCHAR(50) cost_price DECIMAL(10) sell_price DECIMAL(10) reorder_lvl INT
+quantity INT
+supplier_id INT
+
+```
+update products
+set category='Household'
+where product_name LIKE '%Detergent%';
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1243" height="593" alt="image" src="https://github.com/user-attachments/assets/69d3dbd2-1286-4316-8b1a-9be92a342b3f" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Decrease the reorder level by 30 percent where the product name contains 'cream' and quantity in stock is higher than reorder level in the products table.
 
-```sql
--- Paste your SQL code below for Question 3
+PRODUCTS TABLE
+
+name type
+
+product_id INT product_name VARCHAR(100) category VARCHAR(50) cost_price DECIMAL(10,2) sell_price DECIMAL(10,2) reorder_lvl INT quantity INT supplier_id INT
+```
+update products
+set reorder_lvl = reorder_lvl-(reorder_lvl*0.3)
+where product_name LIKE '%cream%' and quantity>reorder_lvl;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1243" height="600" alt="image" src="https://github.com/user-attachments/assets/be6b63fc-ec50-4e7a-8a35-312670f1f47c" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Change the supplier name to upper case where contact person contains ' Singh' in suppliers table.
 
-```sql
--- Paste your SQL code below for Question 4
+name type
+
+supplier_id INT supplier_name VARCHAR(100) contact_person VARCHAR(100) phone_number VARCHAR(20) email VARCHAR(100) address VARCHAR(250)
+
+```
+update suppliers
+set supplier_name= UPPER(supplier_name)
+where contact_person LIKE '%Singh%';
 ```
 
 **Output:**
+<img width="1236" height="442" alt="image" src="https://github.com/user-attachments/assets/516421aa-a799-45ca-ae2f-a2813d6699db" />
 
-![Output4](output.png)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL statement to update the product_name as 'Grapefruit' whose product_id is 4 in the products table.
 
-```sql
--- Paste your SQL code below for Question 5
+products table
+
+product_id product_name category_id availability
+
+```
+update products
+set product_name= 'Grapefruit'
+where product_id = 4;
 ```
 
 **Output:**
+<img width="1238" height="336" alt="image" src="https://github.com/user-attachments/assets/bb3a8338-3665-477e-8d6c-59cf3b14cdc8" />
 
-![Output5](output.png)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to Delete All Doctors with a NULL Specialization
 
-```sql
--- Paste your SQL code below for Question 6
+Sample table: Doctors
+
+attributes : doctor_id, first_name, last_name, specialization
+
+```
+delete from doctors
+where specialization IS NULL;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1312" height="833" alt="image" src="https://github.com/user-attachments/assets/4eb73f6d-0e41-44fe-b23c-2ffd627624c4" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Delete customers from 'customer' table where 'GRADE' is exactly 2.
 
-```sql
--- Paste your SQL code below for Question 7
+Sample table: Customer
+
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+|CUST_CODE | CUST_NAME | CUST_CITY | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO | AGENT_CODE | +-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+ | C00013 | Holmes | London | London | UK | 2 | 6000.00 | 5000.00 | 7000.00 | 4000.00 | BBBBBBB | A003 | | C00001 | Micheal | New York | New York | USA | 2 | 3000.00 | 5000.00 | 2000.00 | 6000.00 | CCCCCCC | A008 | | C00020 | Albert | New York | New York | USA | 3 | 5000.00 | 7000.00 | 6000.00 | 6000.00 | BBBBSBB | A008 |
+
+```
+delete from customer
+where grade==2;
 ```
 
 **Output:**
+<img width="1306" height="498" alt="image" src="https://github.com/user-attachments/assets/7b4bb64e-53e5-44f7-9898-5a8fe733955c" />
 
-![Output7](output.png)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to Delete customers from 'customer' table where 'WORKING_AREA' is 'New York'.
 
-```sql
--- Paste your SQL code below for Question 8
+Sample table: Customer
+
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+|CUST_CODE | CUST_NAME | CUST_CITY | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO | AGENT_CODE | +-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+ | C00013 | Holmes | London | London | UK | 2 | 6000.00 | 5000.00 | 7000.00 | 4000.00 | BBBBBBB | A003 | | C00001 | Micheal | New York | New York | USA | 2 | 3000.00 | 5000.00 | 2000.00 | 6000.00 | CCCCCCC | A008 | | C00020 | Albert | New York | New York | USA | 3 | 5000.00 | 7000.00 | 6000.00 | 6000.00 | BBBBSBB | A008 | For example:
+
+```
+delete from customer
+where working_area = 'New York';
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1306" height="680" alt="image" src="https://github.com/user-attachments/assets/799ea91b-878e-4862-b96e-2a35a54f9b65" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to Delete customers from 'customer' table where 'OPENING_AMT' is between 4000 and 6000.
 
-```sql
--- Paste your SQL code below for Question 9
+Sample table: Customer
+
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+|CUST_CODE | CUST_NAME | CUST_CITY | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO | AGENT_CODE | +-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+ | C00013 | Holmes | London | London | UK | 2 | 6000.00 | 5000.00 | 7000.00 | 4000.00 | BBBBBBB | A003 | | C00001 | Micheal | New York | New York | USA | 2 | 3000.00 | 5000.00 | 2000.00 | 6000.00 | CCCCCCC | A008 | | C00020 | Albert | New York | New York | USA | 3 | 5000.00 | 7000.00 | 6000.00 | 6000.00 | BBBBSBB | A008 |
+
+```
+delete from customer
+where opening_amt between 4000 and 6000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1306" height="555" alt="image" src="https://github.com/user-attachments/assets/5181452b-6f60-4746-b798-b7ace08b2ef7" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to delete a doctor from Doctors table whos specialization is 'Cardiology'
 
-```sql
--- Paste your SQL code below for Question 10
+Sample table: Doctors
+
+attributes : doctor_id, first_name, last_name, specialization
+```
+delete from doctors
+where specialization='Cardiology';
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1302" height="347" alt="image" src="https://github.com/user-attachments/assets/dabc3213-ec65-4263-9472-07b98999fe73" />
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
